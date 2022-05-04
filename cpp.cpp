@@ -9,42 +9,47 @@
 #include <string>
 #include <stdlib.h>
 #include <iostream>
+#include <ctime>
+#include <dos.h>
+
 
 using namespace std;
 
 class osoba
 {
-private:
+ private:
     string imie;
     string nazwisko;
     int wiek;
 
-protected:
-    int dane_osoby_wiek();
+ protected:
+    int pokaz_dane_all();
 
-public:
+ public:
     int pokaz_dane();
 
      osoba()
      {
-         imie = "MARIUSZ"
-         nazwisko = "PERZYNSKI"
+         imie = "MARIUSZ";
+         nazwisko = "PERZYNSKI";
          wiek = 20;
      }
 
 
 };
 
-int osoba::pokaz_dane_wiek()
+int osoba::pokaz_dane_all()
 {
+    return imie;
+    return nazwisko;
     return wiek;
 }
 
 class pracownik:public osoba
 {
-private:
+ private:
     string stanowisko;
-public:
+ public:
     void pokaz_dane();
 
     pracownik()
@@ -55,13 +60,49 @@ public:
 
 class student:public osoba
 {
-private:
+ private:
     string grupa;
-public:
+ public:
     void pokaz_dane();
 
     student()
     {
-        grupa = "handlowcy"
+        grupa = "handlowcy";
     }
 };
+
+void osoba::pokaz_dane()
+{
+    cout << "IMIE: " << imie << "\n";
+    cout << "NAZWISKO: " << nazwisko << "\n";
+    cout << "WIEK: " << wiek << "\n";
+}
+
+void pracownik::pokaz_dane()
+{
+    cout << "IMIE: " << imie << "\n";
+    cout << "NAZWISKO: " << nazwisko << "\n";
+    cout << "WIEK: " << wiek << "\n";
+    cout << "stanowisko: " << stanowisko << "\n";
+}
+
+void student::pokaz_dane()
+{
+    cout << "IMIE: " << imie << "\n";
+    cout << "NAZWISKO: " << nazwisko << "\n";
+    cout << "WIEK: " << wiek << "\n";
+    cout << "grupa: " << grupa << "\n";
+}
+
+int main()
+{
+    setlocale(LC_CTYPE, "Polish"); // polskie znaki w konsoli
+
+    osoba ex1;
+    pracownik ex2;
+    student ex3;
+
+    ex1.pokaz_dane();
+    ex2.pokaz_dane();
+    ex3.pokaz_dane();
+}
