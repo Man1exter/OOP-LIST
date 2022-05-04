@@ -16,24 +16,21 @@
 using namespace std;
 
 class osoba{
-    private:
+    protected:
       string imie,nazwisko;
       int wiek;
-
-    public:
       void pokaz_dane();
-
-       osoba(){
-           imie = "Mariusz";
-           nazwisko = "Perzynski";
-           wiek = 20;
-       }
 };
+
+void osoba::pokaz_dane(){
+    cout << "Imie: " << imie << "\n";
+    cout << "Nazwisko: " << nazwisko << "\n";
+    cout << "Wiek: " << wiek << "\n";
+}
+
 
 int main()
 {
-    osoba x1;
-    
-    x1.pokaz_dane();
+    return 0;
 }
 
