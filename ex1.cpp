@@ -39,13 +39,49 @@ void osoba::pokaz_wszystkie_dane(){
     cout << "Wiek: " << wiek << "\n";
 }
 
+class pracownik: private osoba
+{
+  private:
+    string rola = "LIDER";
+    void pracownik_dane();
+  public:
+    void pokaz_wszystkie_dane(); // przesloniecie
+};
+
+void pracownik::pracownik_dane(){
+    cout << "ROLA W FIRMIE: " << rola << "\n";
+}
+
+void pracownik::pokaz_wszystkie_dane(){
+    pracownik_dane();
+}
+
+class kierownik: private osoba
+{
+  private:
+    string grupa = "Handlowcy";
+    void pracownik_dane();
+  public:
+    void pokaz_wszystkie_dane(); // przesloniecie
+};
+
+void kierownik::pracownik_dane(){
+    cout << "Grupa w firmie: " << grupa << "\n";
+}
+
+void kierownik::pokaz_wszystkie_dane(){
+    pracownik_dane();
+}
 
 int main()
 {
-    setlocale(LC_CTYPE, "Polish"); // polskie znaki w konsoli
     osoba ex1;
+    pracownik ex2;
+    kierownik ex3;
 
     ex1.pokaz_wszystkie_dane();
+    ex2.pokaz_wszystkie_dane();
+    ex3.pokaz_wszystkie_dane();
 
     return 0;
 }
