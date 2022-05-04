@@ -16,8 +16,8 @@
 using namespace std;
 
 class osoba{
-      string imie;
-      string nazwisko;
+      string imie = "Mariusz";
+      string nazwisko = "Perzynski";
       int wiek;
 
     protected:
@@ -29,8 +29,6 @@ class osoba{
 };
 
 void osoba::pokaz_dane(){
-    string imie = "Mariusz";
-    string nazwisko = "Perzynski";
     int wiek = 20;
 }
 
