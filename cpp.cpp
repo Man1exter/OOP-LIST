@@ -34,8 +34,6 @@ class osoba
          nazwisko = "PERZYNSKI";
          wiek = 20;
      }
-
-
 };
 
 int osoba::pokaz_dane_all()
