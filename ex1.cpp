@@ -15,3 +15,25 @@
 
 using namespace std;
 
+class osoba{
+    private:
+      string imie,nazwisko;
+      int wiek;
+
+    public:
+      void pokaz_dane();
+
+       osoba(){
+           imie = "Mariusz";
+           nazwisko = "Perzynski";
+           wiek = 20;
+       }
+};
+
+int main()
+{
+    osoba x1;
+    
+    x1.pokaz_dane();
+}
+
