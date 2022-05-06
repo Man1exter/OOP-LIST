@@ -2,84 +2,100 @@
 // aby przypisanie składnikom danych wartości pobranych zklawiatury, w stworzonych  egzemplarzach klas Student oraz Pracownik,
 // wykonane zostało zapomocą metody zaprzyjaźnionej z klasą.
 
-#include <stdio.h>
-#include <conio.h>
-#include <math.h>
-#include <string.h>
-#include <stdlib.h>
-#include <iostream>
-#include <ctime>
-#include <dos.h>
+#include "conio.h"
+#include "stdio.h"
+#include "math.h"
 
-using namespace std;
+const double DX=1e-6;
 
-class osoba{
-      string imie = "Mariusz";
-      string nazwisko = "Perzynski";
-      int wiek;
-
-    protected:
-      
-      void pokaz_dane();
-
-    public:
-      void pokaz_wszystkie_dane(); // przesloniecie
-};
-
-void osoba::pokaz_dane(){
-    int wiek = 20;
-}
-
-void osoba::pokaz_wszystkie_dane(){
-    void pokaz_dane();
-    cout << "Imie: " << imie << "\n";
-    cout << "Nazwisko: " << nazwisko << "\n";
-    cout << "Wiek: " << wiek << "\n";
-}
-
-class pracownik: private osoba
+class calki
 {
-  private:
-    string rola = "LIDER";
-    void pracownik_dane();
-  public:
-    void pokaz_wszystkie_dane(); // przesloniecie
+protected:
+    double r, x1, x2;
+    double wynik;
+    void pok_wynik();
 };
 
-void pracownik::pracownik_dane(){
-    cout << "ROLA W FIRMIE: " << rola << "\n";
-}
-
-void pracownik::pokaz_wszystkie_dane(){
-    pracownik_dane();
-}
-
-class kierownik: private osoba
+void calki::pok_wynik()
 {
-  private:
-    string grupa = "Handlowcy";
-    void pracownik_dane();
-  public:
-    void pokaz_wszystkie_dane(); // przesloniecie
-};
-
-void kierownik::pracownik_dane(){
-    cout << "Grupa w firmie: " << grupa << "\n";
+        printf("Wartosc calki=%.3lf", wynik);
 }
 
-void kierownik::pokaz_wszystkie_dane(){
-    pracownik_dane();
+class calka_sin:public calki
+{
+private:
+  void dane();
+  void calka();
+public:
+void process();
+};
+
+void calka_sin::dane()
+{
+printf("podaj x1, x2: ");
+scanf("%lf%lf", &x1, &x2);
+}
+
+void calka_sin::calka()
+{
+double y, x=x1;
+wynik=0;
+
+while (x<=x2)
+{
+y=sin(x);
+wynik+=y*DX;
+x+=DX;
+}
+}
+
+void calka_sin::process()
+{
+dane();
+calka();
+pok_wynik();
+}
+
+class calka_okr:public calki
+{
+private:void dane();
+void calka();
+public:
+void process();
+};
+
+void calka_okr::dane()
+{
+printf("\n\nPodaj promien: ");
+scanf("%lf", &r);printf("\nPodaj x1, x2: ");
+scanf("%lf%lf", &x1, &x2);
+}
+
+void calka_okr::calka()
+{
+double y, x=x1;
+wynik=0;
+while(x<=x2)
+{
+y=sqrt(r*r-x*x);
+wynik+=y*DX;x+=DX;
+}
+}
+
+void calka_okr::process()
+{
+dane();
+calka();
+pok_wynik();
 }
 
 int main()
 {
-    osoba ex1;
-    pracownik ex2;
-    kierownik ex3;
+calka_sin sinusoid;
+sinusoid.process();
 
-    ex1.pokaz_wszystkie_dane();
-    ex2.pokaz_wszystkie_dane();
-    ex3.pokaz_wszystkie_dane();
+calka_okr circle;
+circle.process();
 
-    return 0;
+return 0;
 }

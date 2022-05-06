@@ -16,11 +16,11 @@
 using namespace std;
 
 class osoba{
+
+    protected:
       string imie = "Mariusz";
       string nazwisko = "Perzynski";
       int wiek;
-
-    protected:
       
       void pokaz_dane();
 
