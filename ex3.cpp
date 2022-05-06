@@ -33,10 +33,13 @@ void pokazanie();
 
 void osoba_dane::dane()
 {
-cout << "podaj imie, nazwisko, wiek: " << "\n";
+cout << "podaj imie" << "\n";
 cin >> imie;
+cout << "podaj nazwisko" << "\n";
 cin >> nazwisko;
+cout << "podaj wiek" << "\n";
 cin >> wiek;
+cout << "\n";
 }
 
 void osoba_dane::pokaz_dane()
