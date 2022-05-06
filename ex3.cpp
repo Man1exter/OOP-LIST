@@ -59,9 +59,6 @@ pokaz_dane();
 
 
 
-
-
-
 class osoba_stanowisko:public osoba
 {
 private:
@@ -89,7 +86,6 @@ void osoba_stanowisko::pokazanie()
 dane();
 pokaz_dane();
 }
-
 
 
 class osoba_grupa:public osoba
@@ -131,7 +127,6 @@ int main()
 
     osoba_grupa d3;
     d3.pokazanie();
-
 
 return 0;
 }
