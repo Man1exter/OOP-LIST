@@ -29,7 +29,7 @@ class osoba{
 };
 
 void osoba::pokaz_dane(){
-    int wiek = 20;
+    int wiek = 8;
 }
 
 void osoba::pokaz_wszystkie_dane(){
